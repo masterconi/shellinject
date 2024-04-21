@@ -33,3 +33,10 @@ sorry idk how copy it to msvc  ¯\\_(ツ)_/¯
 why i did it ?
 
 i have nothin to do at holidays :-D
+
+--------------------------------------------------------
+TODO :add priv esc , make hard to detect , make the shell code encrypted , make the shell code inject "vir.dll" , make readme.md more beautiful (✿◡‿◡)
+
+
+
+i would be happy to get help thanks
