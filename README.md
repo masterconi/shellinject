@@ -10,7 +10,8 @@ and injecting shell code in my example its reverse_shell
 you nead to change the pass to the virus.ex in here + you can change the auto startup name 
 
 
-![Screenshot (10)](https://github.com/masterconi/shellinject/assets/85493153/e2e35cd5-d164-4bbd-b0d8-e62d3cbdaec2)
+
+![Screenshot (10)](https://github.com/masterconi/shellinject/assets/85493153/8c445392-241b-4eed-a331-b1ce144e0387)
 
 
 -----------------------------------------------------------------------------------
