@@ -24,12 +24,18 @@
     <ClCompile Include="find_pid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="dll_inj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_to_startup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="find_pid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dll_inj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

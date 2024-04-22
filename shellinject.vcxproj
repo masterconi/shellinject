@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="add_to_startup.cpp" />
+    <ClCompile Include="dll_inj.cpp" />
     <ClCompile Include="find_pid.cpp" />
     <ClCompile Include="shellinj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_to_startup.h" />
+    <ClInclude Include="dll_inj.h" />
     <ClInclude Include="find_pid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
