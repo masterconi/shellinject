@@ -44,8 +44,15 @@ why i did it ?
 i have nothin to do at holidays :-D
 
 --------------------------------------------------------
-TODO :add priv esc , make hard to detect , make the shell code encrypted , make the shell code inject "vir.dll" , make readme.md more beautiful (✿◡‿◡)
+TODO : make hard to detect , make the shell code encrypted ,  make readme.md more beautiful (✿◡‿◡)
 
+
+ON_WORKrn: add priv esc ,make the shell code inject "vir.dll" ,disable windows defender :)
 
 
 i would be happy to get help thanks
+----------------------------------------------------------------------------
+
+why the code so shity : 1:becouse i make it in my free time and i am to lazy for makeing it beautiful ,2: shutup scrypt_kiddie
+
+
