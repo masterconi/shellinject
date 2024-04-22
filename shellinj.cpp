@@ -86,6 +86,11 @@ int main(int arcg,char* argv[]) {
 	PID = atoi(argv[1]);
 	*/
 	PID = get_pid();
+	if (PID== 0)
+	{
+		return EXIT_FAILURE;
+	}
+	printf("%s the process id is :(%ld)\n",i,PID);
 
 	AddToStartup();
 

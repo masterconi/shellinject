@@ -29,11 +29,10 @@ DWORD GetPIDByProcessName(const std::wstring& processName) {
 DWORD get_pid () {
     std::wstring processName = L"explorer.exe";
     DWORD pid = GetPIDByProcessName(processName);
-    if (pid != 0) {
-        std::wcout << L"PID of " << processName << ": " << pid << std::endl;
+    if (pid == 0) {
+        std::wcout<< "[-] " << processName << L"is not running." << std::endl;
+        return 0;
     }
-    else {
-        std::wcout << processName << L" is not running." << std::endl;
-    }
+
     return pid;
 }
