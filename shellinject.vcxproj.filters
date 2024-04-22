@@ -27,6 +27,12 @@
     <ClCompile Include="dll_inj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="priv_esc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disable_windef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_to_startup.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dll_inj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="priv_esc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disable_windef.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

