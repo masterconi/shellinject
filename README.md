@@ -7,7 +7,7 @@ and injecting shell code in my example its reverse_shell
 
 ------------------------------------------------------------------------------------
 
-you nead to change the pass to the virus.ex in here + you can change the auto startup name 
+you nead to change the pass to the meoware.exe in here + you can change the auto startup name 
 
 
 
@@ -33,9 +33,9 @@ plus you can change the executeble to be injected in here :
 
 to build the repo try to do it with g++ or msvs
 
-g++ example :``` g++ add_to_startup.cpp find_pid.cpp shellinj.cpp -o shellinj.exe```
+g++ example :``` g++ add_to_startup.cpp find_pid.cpp shellinj.cpp -o meoware.exe```
 
-sorry idk how copy it to msvc  ¯\\_(ツ)_/¯
+sorry idk how copy it to msvs  ¯\\_(ツ)_/¯
 
 ----------------------------------------------------
 
