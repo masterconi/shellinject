@@ -44,7 +44,7 @@ why i did it ?
 i have nothin to do at holidays :-D
 
 --------------------------------------------------------
-TODO : make hard to detect , make the shell code encrypted ,  make readme.md more beautiful (✿◡‿◡)
+TODO : make hard to detect , make the shell code encrypted ,  make readme.md more beautiful (✿◡‿◡), make a builder for script_kids (like you yes you the one how reading it)（￣︶￣）
 
 
 ON_WORKrn: add priv esc ,make the shell code inject "vir.dll" ,disable windows defender :)
