@@ -72,12 +72,18 @@ HANDLE hProcess, hThread = NULL;
 
 int main(int arcg,char* argv[]) {
 
+	if (IsDebuggerPresent()) {
+
+		printf("%s the program is debugged ",e);
+		return EXIT_FAILURE;
+	}
+/*
 	LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds;
 	LARGE_INTEGER Frequency;
 
 	QueryPerformanceFrequency(&Frequency);
 	QueryPerformanceCounter(&StartingTime);
-
+	*/
 	/*
 	AddToStartup();
 	
@@ -129,13 +135,13 @@ int main(int arcg,char* argv[]) {
 
 
 
-
+	/*
 	QueryPerformanceCounter(&EndingTime);
 	ElapsedMicroseconds.QuadPart = EndingTime.QuadPart - StartingTime.QuadPart;
 	ElapsedMicroseconds.QuadPart *= 1000000;
 	ElapsedMicroseconds.QuadPart /= Frequency.QuadPart;
 	printf("%s got a handle to the thread (%ld), %lu micro Sec\n\\ ---0x%p\n ",k,TID,hThread,ElapsedMicroseconds);
-
+	*/
 	WaitForSingleObject(hThread, INFINITE);
 	printf("%s thread finished execution\n",k);
 
