@@ -10,7 +10,7 @@ LPVOID rBuffer = NULL;
 HMODULE hKeanel32 = NULL;
 HANDLE hProcess, hThread = NULL;
 
-wchar_t dllPath[MAX_PATH] = L"C:\\Users\\adamp\\projects\\reverse.dll";
+wchar_t dllPath[MAX_PATH] = L"\\reverse.dll";
 size_t dllPathSize = sizeof(dllPath);
 
 
