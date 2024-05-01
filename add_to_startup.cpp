@@ -24,7 +24,7 @@ bool bAddToStartup(const std::wstring& appName, const std::wstring& appPath) {
 
 void AddToStartup() {
     std::wstring appName = L"shellinject";
-    std::wstring appPath = L"C:\\Users\\adamp\\projects\\vs\\shellinject\\x64\\Debug\\shellinject.exe";
+    std::wstring appPath = L".\\shellinject.exe";
     if (!bAddToStartup(appName, appPath)) {
         std::cerr << "[-] Failed to add program to startup." << std::endl;
         
