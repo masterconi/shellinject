@@ -129,6 +129,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="add_to_startup.cpp" />
+    <ClCompile Include="builder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="disable_windef.cpp" />
     <ClCompile Include="dll_inj.cpp" />
     <ClCompile Include="find_pid.cpp" />
