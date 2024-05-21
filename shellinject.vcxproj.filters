@@ -33,9 +33,6 @@
     <ClCompile Include="disable_windef.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_to_startup.h">

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{cc39f478-680e-43a1-a105-41441ae9abf3}</ProjectGuid>
-    <RootNamespace>shellinject</RootNamespace>
+    <ProjectGuid>{8489aba7-20cc-4d49-8d41-b3fd615fffee}</ProjectGuid>
+    <RootNamespace>builder</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -100,7 +100,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
@@ -128,20 +128,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="add_to_startup.cpp" />
-    <ClCompile Include="disable_windef.cpp" />
-    <ClCompile Include="dll_inj.cpp" />
-    <ClCompile Include="find_pid.cpp" />
-    <ClCompile Include="priv_esc.cpp" />
-    <ClCompile Include="shellinj.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="add_to_startup.h" />
-    <ClInclude Include="disable_windef.h" />
-    <ClInclude Include="dll_inj.h" />
-    <ClInclude Include="find_pid.h" />
-    <ClInclude Include="priv_esc.h" />
-    <ClInclude Include="shellcode.h" />
+    <ClCompile Include="..\builder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
