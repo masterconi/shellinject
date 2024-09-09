@@ -129,6 +129,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="add_to_startup.cpp" />
+    <ClCompile Include="aes.cpp" />
+    <ClCompile Include="DebugProtection.cpp" />
     <ClCompile Include="disable_windef.cpp" />
     <ClCompile Include="dll_inj.cpp" />
     <ClCompile Include="find_pid.cpp" />
@@ -137,6 +139,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_to_startup.h" />
+    <ClInclude Include="aes.h" />
+    <ClInclude Include="DebugProtection.h" />
     <ClInclude Include="disable_windef.h" />
     <ClInclude Include="dll_inj.h" />
     <ClInclude Include="find_pid.h" />

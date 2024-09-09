@@ -33,6 +33,12 @@
     <ClCompile Include="disable_windef.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DebugProtection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_to_startup.h">
@@ -51,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="shellcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugProtection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
