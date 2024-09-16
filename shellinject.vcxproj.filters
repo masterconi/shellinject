@@ -56,9 +56,6 @@
     <ClInclude Include="disable_windef.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="shellcode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DebugProtection.h">
       <Filter>Header Files</Filter>
     </ClInclude>

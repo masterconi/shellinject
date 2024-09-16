@@ -1,5 +1,6 @@
 #include "find_pid.h"
 
+
 // Function to find PID by process name
 DWORD GetPIDByProcessName(const std::wstring& processName) {
     HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -26,8 +27,8 @@ DWORD GetPIDByProcessName(const std::wstring& processName) {
     return 0;
 }
 
-DWORD get_pid() {
-    std::wstring processName = L"explorer.exe";
+DWORD get_pid(std::wstring processName ) {
+    
     DWORD pid = GetPIDByProcessName(processName);
     if (pid != 0) {
        

